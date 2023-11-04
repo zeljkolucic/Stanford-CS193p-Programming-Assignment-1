@@ -11,6 +11,7 @@
 		E42B7CF62AF69EDD0076D9B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B7CF52AF69EDD0076D9B5 /* ContentView.swift */; };
 		E42B7CF82AF69EDE0076D9B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42B7CF72AF69EDE0076D9B5 /* Assets.xcassets */; };
 		E42B7CFB2AF69EDE0076D9B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42B7CFA2AF69EDE0076D9B5 /* Preview Assets.xcassets */; };
+		E42B7D022AF6A07A0076D9B5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42B7D012AF6A07A0076D9B5 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		E42B7CF52AF69EDD0076D9B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E42B7CF72AF69EDE0076D9B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E42B7CFA2AF69EDE0076D9B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E42B7D012AF6A07A0076D9B5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				E42B7CF32AF69EDD0076D9B5 /* Stanford_CS193p_Programming_Assignment_1App.swift */,
 				E42B7CF52AF69EDD0076D9B5 /* ContentView.swift */,
+				E42B7D012AF6A07A0076D9B5 /* CardView.swift */,
 				E42B7CF72AF69EDE0076D9B5 /* Assets.xcassets */,
 				E42B7CF92AF69EDE0076D9B5 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42B7CF62AF69EDD0076D9B5 /* ContentView.swift in Sources */,
+				E42B7D022AF6A07A0076D9B5 /* CardView.swift in Sources */,
 				E42B7CF42AF69EDD0076D9B5 /* Stanford_CS193p_Programming_Assignment_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
