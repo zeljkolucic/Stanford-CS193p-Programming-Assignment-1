@@ -75,13 +75,15 @@ struct ContentView: View {
             Spacer()
             HStack {
                 ForEach(Theme.allCases, id: \.self) { theme in
-                    Button(
-                        theme.title,
-                        systemImage: selectedTheme == theme ? theme.selectedImageName : theme.imageName
-                    ) {
+                    Button(action: {
                         selectedTheme = theme
-                    }
-                    .buttonStyle(.bordered)
+                    }, label: {
+                        VStack {
+                            Image(systemName: selectedTheme == theme ? theme.selectedImageName : theme.imageName)
+                            Text(theme.title)
+                        }
+                    })
+                    .frame(maxWidth: .infinity)
                 }
             }
         }
