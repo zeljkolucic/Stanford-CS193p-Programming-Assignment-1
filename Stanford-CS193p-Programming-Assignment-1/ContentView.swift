@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
                 ForEach(emojis, id: \.self) { emoji in
                     CardView(content: emoji)
                         .aspectRatio(2/3, contentMode: .fit)
