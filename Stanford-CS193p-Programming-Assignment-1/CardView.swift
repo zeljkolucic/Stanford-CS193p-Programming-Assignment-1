@@ -23,7 +23,6 @@ struct CardView: View {
             }
         }
         .foregroundStyle(.orange)
-        .padding()
     }
 }
 
