@@ -8,7 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["👻", "🎃", "🕷️", "😈", "💀", "🕸️", "🧙", "🙀", "👹", "😱", "☠️", "🍭"]
+    enum Theme: CaseIterable {
+        case halloween
+        case vehicles
+        case fruit
+        
+        var title: String {
+            switch self {
+            case .halloween:
+                "Halloween"
+            case .vehicles:
+                "Vehicles"
+            case .fruit:
+                "Fruit"
+            }
+        }
+        
+        var imageName: String {
+            switch self {
+            case .halloween:
+                "ant"
+            case .vehicles:
+                "car"
+            case .fruit:
+                "carrot"
+            }
+        }
+        
+        var selectedImageName: String {
+            switch self {
+            case .halloween:
+                "ant.fill"
+            case .vehicles:
+                "car.fill"
+            case .fruit:
+                "carrot.fill"
+            }
+        }
+        
+        var emojis: [String] {
+            switch self {
+            case .halloween:
+                ["👻", "🎃", "🕷️", "😈", "💀", "🕸️", "🧙", "🙀", "👹", "😱", "☠️", "🍭"]
+            case .vehicles:
+                ["🚗", "🚜", "🚌", "🛵", "🛴", "🛺", "🚲"]
+            case .fruit:
+                ["🍒", "🍓", "🍇", "🍎", "🍉", "🍋", "🍌", "🥝"]
+            }
+        }
+    }
+    
+    @State var selectedTheme: Theme = .halloween
     
     var body: some View {
         VStack {
@@ -16,10 +66,22 @@ struct ContentView: View {
                 .font(.largeTitle)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
-                    ForEach(emojis, id: \.self) { emoji in
+                    ForEach(selectedTheme.emojis, id: \.self) { emoji in
                         CardView(content: emoji)
                             .aspectRatio(2/3, contentMode: .fit)
                     }
+                }
+            }
+            Spacer()
+            HStack {
+                ForEach(Theme.allCases, id: \.self) { theme in
+                    Button(
+                        theme.title,
+                        systemImage: selectedTheme == theme ? theme.selectedImageName : theme.imageName
+                    ) {
+                        selectedTheme = theme
+                    }
+                    .buttonStyle(.bordered)
                 }
             }
         }
