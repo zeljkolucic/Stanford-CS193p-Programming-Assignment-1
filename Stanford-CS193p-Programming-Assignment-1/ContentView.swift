@@ -13,6 +13,15 @@ struct ContentView: View {
         case vehicles
         case fruit
         
+        struct Emoji: Identifiable {
+            let id = UUID()
+            let content: String
+            
+            init(_ content: String) {
+                self.content = content
+            }
+        }
+        
         var title: String {
             switch self {
             case .halloween:
@@ -46,14 +55,14 @@ struct ContentView: View {
             }
         }
         
-        var emojis: [String] {
+        var emojis: [Emoji] {
             switch self {
             case .halloween:
-                ["👻", "🎃", "🕷️", "😈", "💀", "🕸️", "🧙", "🙀", "👹", "😱", "☠️", "🍭"]
+                [Emoji("👻"), Emoji("🎃"), Emoji("🕷️"), Emoji("😈"), Emoji("💀"), Emoji("🕸️"), Emoji("🧙"), Emoji("🙀"), Emoji("👹"), Emoji("😱"), Emoji("☠️"), Emoji("🍭")]
             case .vehicles:
-                ["🚗", "🚜", "🚌", "🛵", "🛴", "🛺", "🚲"]
+                [Emoji("🚗"), Emoji("🚜"), Emoji("🚌"), Emoji("🛵"), Emoji("🛴"), Emoji("🛺"), Emoji("🚲")]
             case .fruit:
-                ["🍒", "🍓", "🍇", "🍎", "🍉", "🍋", "🍌", "🥝"]
+                [Emoji("🍒"), Emoji("🍓"), Emoji("🍇"), Emoji("🍎"), Emoji("🍉"), Emoji("🍋"), Emoji("🍌"), Emoji("🥝")]
             }
         }
     }
@@ -66,8 +75,9 @@ struct ContentView: View {
                 .font(.largeTitle)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))]) {
-                    ForEach(selectedTheme.emojis, id: \.self) { emoji in
-                        CardView(content: emoji)
+                    let emojis = (selectedTheme.emojis + selectedTheme.emojis).shuffled()
+                    ForEach(emojis) { emoji in
+                        CardView(content: emoji.content)
                             .aspectRatio(2/3, contentMode: .fit)
                     }
                 }
